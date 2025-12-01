@@ -1,9 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Hello!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baby's IQ Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hello World 🌍</h1>
+    <div class="snow-layer" aria-hidden="true"></div>
+    <div class="market-lights" aria-hidden="true"></div>
+    <main class="card">
+      <section class="intro">
+        <p class="eyebrow">Mission briefing</p>
+        <h1>Baby's IQ Test</h1>
+        <p>
+          Fill the mug with ten marshmallows by answering each winter-formal prep
+          question correctly. Once the cocoa cup is full, the true mission will
+          reveal itself. (If you get 10 marshmallows, you will get free hot cocoa on me :)
+        </p>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <div class="progress-panel">
+          <p>Question <span id="question-number">1</span>/10</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="sub">Answer right to earn a marshmallow.</p>
+        </div>
+        <div class="mug-panel">
+          <div class="mug" aria-hidden="true">
+            <div class="steam">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="cocoa">
+              <div class="marshmallow-pool" id="marshmallow-pool"></div>
+            </div>
+          </div>
+          <div class="mug-info">
+            <p>Marshmallows collected</p>
+            <p class="count"><span id="marshmallow-count">0</span>/10</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz" aria-live="polite">
+        <div class="question-card">
+          <p class="eyebrow" id="question-type">Loading...</p>
+          <h2 id="question-text">Loading question...</h2>
+          <div class="options" id="options"></div>
+          <p id="feedback" role="status"></p>
+        </div>
+        <button id="submit" type="button">Submit answer</button>
+      </section>
+
+      <section class="reveal" hidden>
+        <p class="eyebrow">Cup complete</p>
+        <h2>Do you want to go to winter formal with me?</h2>
+        <p>
+          I promise warm cocoa, matching fits, and ten marshmallows whenever you
+          want them. Tap the RSVP to make it official.
+        </p>
+        <button id="celebrate" type="button">RSVP "Yes"</button>
+        <p id="reveal-feedback"></p>
+      </section>
+    </main>
+
+    <template id="option-template">
+      <button class="option" type="button"></button>
+    </template>
+
+    <template id="marshmallow-template">
+      <span class="marshmallow"></span>
+    </template>
+
+    <template id="confetti-template">
+      <span class="confetti"></span>
+    </template>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
